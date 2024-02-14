@@ -260,12 +260,9 @@ Description : DOM Elements.
 
 
 				// Task 9: Change the text color of each item in the 'Related Links' to green
-				document.addEventListener('DOMContentLoaded', function() {
-					const aside = document.querySelector('aside');
-					const links = aside.querySelectorAll('a');
-					relatedlinks.forEach(link => {
-						link.style.color = 'green';
-					});
+				const relatedLinks = document.querySelectorAll('aside ul li a');
+				relatedLinks.forEach(link => {
+					link.style.color = 'green';
 				});
 
 
