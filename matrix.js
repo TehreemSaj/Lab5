@@ -63,6 +63,7 @@ const showResult2D = (title, containerId, dataArray) => {
             let td = document.createElement('td');
             let span = document.createElement('span');
             span.textContent = dataArray[i][j]; 
+            td.appendChild(span);
             tr.appendChild(td);
         }
         table.appendChild(tr);
