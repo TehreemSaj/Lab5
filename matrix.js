@@ -84,8 +84,25 @@ function performOperation(operation) {
     // Call your matrix calculation functions here
     // For example: if (operation === 'add') { addMatrices(matrix1, matrix2); }
 	// prints suitable messages for impossible situation
-    showResult('The Result', 'matrix3', 2, 4, result); // use suitable function for printing results
+    //showResult('The Result', 'matrix3', 2, 4, result); // use suitable function for printing results
+    if (operation === 'add') {
+        result = addMatrices(matrix1, matrix2);
+    } else if (operation === 'subtract') {
+        result = subtractMatrices(matrix1, matrix2);
+    } else if (operation === 'multiply') {
+        result = multiplyMatrices(matrix1, matrix2);
+    } else {
+        console.error('Invalid operation:', operation);
+        return;
+    }
+    if (!result) {
+        console.error('Operation failed:', operation);
+        return;
+    }
+    
+    showResult2D('The Result', 'matrix3', result);
 }
+
 
 const getMatrixData1D = function (matrixId) {
     let matrixData = [];
