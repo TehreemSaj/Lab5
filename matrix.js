@@ -53,6 +53,24 @@ const showResult = (title, containerId, rows, cols, dataArray) => {
 const showResult2D = (title, containerId, dataArray) => {
 	// dataArray is a 2D array
 	// complete this function based on the showResult function
+    let container = document.getElementById(containerId);
+    container.innerHTML = ''; // Clear previous content
+    let table = document.createElement('table');
+
+    for (let i = 0; i < dataArray.length; i++) {
+        let tr = document.createElement('tr');
+        for (let j = 0; j < dataArray[i].length; j++) {
+            let td = document.createElement('td');
+            let span = document.createElement('span');
+            span.textContent = dataArray[i][j]; 
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
+    }
+
+    let caption = table.createCaption();
+    caption.textContent = title;
+    container.appendChild(table);
 }
 
 function performOperation(operation) {
@@ -104,11 +122,54 @@ const getMatrixData2D = function (matrixId) {
 // Add your matrix calculation functions here
 // The functions must check the posibility of calculation too.
 function addMatrices(matrix1, matrix2){ 
-	// provide the code
+    if (matrix1.length !== matrix2.length || matrix1[0].length !== matrix2[0].length) {
+        console.error('Matrix addition is not possible: Matrices have different dimensions.');
+        return null;
+    }
+
+    let result = [];
+    for (let i = 0; i < matrix1.length; i++) {
+        let row = [];
+        for (let j = 0; j < matrix1[0].length; j++) {
+            row.push(matrix1[i][j] + matrix2[i][j]);
+        }
+        result.push(row);
+    }
+    return result;
 }
 const subtractMatrices = function (matrix1, matrix2) { 
-	// provide the code
+    if (matrix1.length !== matrix2.length || matrix1[0].length !== matrix2[0].length) {
+        console.error('Matrix subtraction is not possible: Matrices have different dimensions.');
+        return null;
+    }
+
+    let result = [];
+    for (let i = 0; i < matrix1.length; i++) {
+        let row = [];
+        for (let j = 0; j < matrix1[0].length; j++) {
+            row.push(matrix1[i][j] - matrix2[i][j]);
+        }
+        result.push(row);
+    }
+    return result;
 };
 const multiplyMatrices = (matrix1, matrix2) => { 
-	// provide the code
+	if (matrix1[0].length !== matrix2.length) {
+        console.error('Matrix multiplication is not possible: Incompatible dimensions.');
+        return null;
+    }
+
+    let result = [];
+    for (let i = 0; i < matrix1.length; i++) {
+        let row = [];
+        for (let j = 0; j < matrix2[0].length; j++) {
+            let sum = 0;
+            for (let k = 0; k < matrix1[0].length; k++) {
+                sum += matrix1[i][k] * matrix2[k][j];
+            }
+            row.push(sum);
+        }
+        result.push(row);
+    }
+    return result;
 };
