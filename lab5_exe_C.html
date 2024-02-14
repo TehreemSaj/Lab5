@@ -242,6 +242,7 @@ Description : DOM Elements.
     			logoImage.setAttribute('src', './images/example.svg');
 
 				// Task 7: Add a new item in the navigation menu
+				const navMenu = document.querySelector('nav ul');
 				const newItem = document.createElement('li');
 				const newLink = document.createElement('a');
 				newLink.textContent = 'Blog';
@@ -259,10 +260,14 @@ Description : DOM Elements.
 
 
 				// Task 9: Change the text color of each item in the 'Related Links' to green
-				const relatedLinks = document.querySelectorAll('aside .relatedLink');
-				relatedLinks.forEach(link => {
-					link.style.color = 'green';
+				document.addEventListener('DOMContentLoaded', function() {
+					const aside = document.querySelector('aside');
+					const links = aside.querySelectorAll('a');
+					relatedlinks.forEach(link => {
+						link.style.color = 'green';
+					});
 				});
+
 
 				// Task 10: Add a red solid border to the footer
 				const footer = document.querySelector('footer');
