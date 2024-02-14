@@ -80,11 +80,12 @@ function performOperation(operation) {
     console.log("2nd Matrix", matrix2);
     console.log("Operation", operation);
     // Just a test result
-    let result = [1, 2, 3, 4, 5, 6, 7, 8];
+    //let result = [1, 2, 3, 4, 5, 6, 7, 8];
     // Call your matrix calculation functions here
     // For example: if (operation === 'add') { addMatrices(matrix1, matrix2); }
 	// prints suitable messages for impossible situation
     //showResult('The Result', 'matrix3', 2, 4, result); // use suitable function for printing results
+    let result;
     if (operation === 'add') {
         result = addMatrices(matrix1, matrix2);
     } else if (operation === 'subtract') {
